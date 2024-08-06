@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <!-- Constructor based injection -->
+    <bean name="cust" class="com.grayMatter.beans.CustomerBean">
+    	<constructor-arg name="name" value="amrit"></constructor-arg>
+    	<constructor-arg name="id" value="156"></constructor-arg>
+    	<constructor-arg name="mobile" value="6666666677"></constructor-arg>
+    </bean>
+    
+   <!-- property ====setters --> 
+    <bean name="cust1" class="com.grayMatter.beans.CustomerBean">
+    	<property name="name" value="viky"></property>
+    	<property name="id" value="456"></property>
+    	<property name="mobile" value="6666666677"></property>
+    </bean>
+
+</beans>

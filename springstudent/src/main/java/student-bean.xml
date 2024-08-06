@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+
+    <!-- bean definitions here -->
+    
+  <!--   <context:property-placeholder location="classpath:data.properties"/>-->
+  
+  <!--   <bean name="stud" class="com.grayMatter.beans.Student">
+   	<property name="name" value="${Student.name}"></property>
+   	<property name="id" value="${Student.id}"></property>
+   </bean>
+   -->
+   
+ <!--   <bean name="studs" class="com.grayMatter.beans.Student" autowire="constructor">
+   <constructor-arg name="name" value="amrit"></constructor-arg>
+   <constructor-arg name="id" value="23"></constructor-arg>
+   <constructor-arg name="order" ref="ord"></constructor-arg>
+   </bean>
+  
+  
+   <bean name="ord" class="com.grayMatter.beans.Order">
+   	<constructor-arg name="orderId" value="56"></constructor-arg>
+   	<constructor-arg name="itemlist" >
+   		<list>
+   			<value>item1</value>
+   			<value>item2</value>
+   			<value>item3</value>
+   			<value>item4</value>
+   		</list>
+   	</constructor-arg>
+   </bean>
+   --> 
+   <bean name="st" class="com.grayMatter.beans.Student" autowire="constructor">
+   		<constructor-arg name="name" value="amrit"></constructor-arg>
+   		<constructor-arg name="id" value="4556"></constructor-arg>
+   		<constructor-arg name="courses"  >
+   			<set>
+   				<ref bean="cc1"/>
+   				<ref bean="cc2"/>
+   				<ref bean="cc3"/>
+   			</set>
+   		</constructor-arg>
+   		
+   </bean>
+   
+   <bean name="cc1" class="com.grayMatter.beans.Course">
+   		<constructor-arg name="courseName" value="java"></constructor-arg>
+   		<constructor-arg name="duration" value="10"></constructor-arg>
+   </bean>
+   <bean name="cc2" class="com.grayMatter.beans.Course">
+   		<constructor-arg name="courseName" value="C"></constructor-arg>
+   		<constructor-arg name="duration" value="100"></constructor-arg>
+   		
+   </bean>
+   <bean name="cc3" class="com.grayMatter.beans.Course">
+   		<constructor-arg name="courseName" value="C++"></constructor-arg>
+   		<constructor-arg name="duration" value="1000"></constructor-arg>
+   		
+   </bean>
+   
+   <!-- here student has a set of courses and each course is a separate class so
+   in bean language while creating bean for student we need to create a set of reference of beans which are bean of course -->
+	
+	<!-- while doing autowiring through constructor  and bean class not having any constructor then spring container will perform constructor injection through default constructor and then uses setters to inject value -->
+</beans>
